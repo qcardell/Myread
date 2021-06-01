@@ -5,11 +5,12 @@ import { Link } from 'react-router-dom'
 class SearchBooks extends Component {
 	state = {
 		query:''
+
 	}
 	
 	updateQuery = (query) => {
 		this.setState({ query: query.trim()})
-		
+		console.log("searching")
 	}
 	render(){
 		var showingBooks = [];
@@ -29,10 +30,10 @@ class SearchBooks extends Component {
 			for (a = 0; a < Obook.length; a++) {
 				//console.log(a);
 				if(Obook[a].id === showingBooks[i].id){
-					console.log('match');
+					//console.log('match');
 					showingBooks[i].shelf = Obook[a].shelf;
-					console.log(Obook[a].shelf);
-					console.log(showingBooks[i].shelf);
+					//console.log(Obook[a].shelf);
+					//console.log(showingBooks[i].shelf);
 					
 				}
 			}
@@ -46,7 +47,7 @@ class SearchBooks extends Component {
 				showingBooks[i]['imageLinks'] = imageLinks[0];
 			}
 		}
-		console.log(showingBooks);
+		//console.log(showingBooks);
 		//console.log(this.props.books);
 			return(
 				<div className="search-books">
@@ -64,7 +65,7 @@ class SearchBooks extends Component {
 								<input 
 									type="text" 
 									placeholder="Search by title or author"
-									onBlur={(event) => this.props.onSearchBooksvalue(event.target.value)}
+									onChange={(event) => this.props.onSearchBooksvalue(event.target.value)}
 								/>
 						</div>
 					</div>

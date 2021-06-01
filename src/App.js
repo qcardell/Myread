@@ -83,6 +83,7 @@ class BooksApp extends Component {
 			this.setState({books})
 		})
 	}
+	
 	searchNewBook(query){
 		BooksAPI.search(query).then((newbooks) => {
 			this.setState({newbooks})
@@ -140,7 +141,7 @@ class BooksApp extends Component {
 						<ListBooks onChangeBookValue={this.handlechange} books={this.state.books}/>
 					</div>
 				)}/>
-				<Route path="/search" render={({ history }) => (
+				<Route path="/search" render={() => (
 					<SearchBooks
 						books={this.state.books}
 						onChangeBookValue={(newbooks) => {this.handlechange_search(newbooks)}} 
